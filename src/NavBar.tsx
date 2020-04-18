@@ -47,7 +47,7 @@ class NavBar extends Component {
     };
     return (
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand style={{width:"100%"}}>
+        <Navbar.Brand style={{ width: "100%" }}>
           <img
             alt=""
             src={teams.rcb.logo}
@@ -56,11 +56,13 @@ class NavBar extends Component {
             className="d-inline-block align-top"
           />{" "}
           <span style={{ verticalAlign: "sub" }}>{teams.rcb.name}</span>
-          <Form.Check style={{float:"right"}} type="checkbox" label="Dark Mode" />
+          <Form.Check
+            style={{ float: "right" }}
+            type="checkbox"
+            label="Dark Mode"
+          />
         </Navbar.Brand>
-        
       </Navbar>
-      
     );
   }
 }
