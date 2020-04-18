@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import csk from "./logos/csk.svg";
@@ -10,10 +10,8 @@ import rr from "./logos/rr.svg";
 import srh from "./logos/srh.svg";
 import kkr from "./logos/kkr.svg";
 import {ThemeContext} from "./contexts/ThemeContext";
-import {withTeam} from "./contexts/TeamContext"
-class NavBar extends Component<{teamContext:any}> {
-  static contextType = ThemeContext;
-  render() {
+import {TeamContext} from "./contexts/TeamContext"
+function NavBar() {
     const teams:any = {
       rcb: {
         logo: rcb,
@@ -48,8 +46,8 @@ class NavBar extends Component<{teamContext:any}> {
         name: "Kolkata Knight Riders",
       },
     };
-    const {isDarkMode, toggleTheme} = this.context;
-    const {team} = this.props.teamContext;
+    const {isDarkMode, toggleTheme} = useContext(ThemeContext);
+    const {team} = useContext(TeamContext);
     return (
       <Navbar bg={isDarkMode? "dark": "primary"} variant="dark">
         <Navbar.Brand style={{ width: "100%" }}>
@@ -64,14 +62,13 @@ class NavBar extends Component<{teamContext:any}> {
           <Form.Check
             style={{ float: "right" }}
             type="checkbox"
-            value={isDarkMode}
+            value={""+isDarkMode}
             label="Dark Mode"
             onChange={toggleTheme}
           />
         </Navbar.Brand>
       </Navbar>
     );
-  }
 }
 
-export default withTeam(NavBar);
+export default NavBar;

@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import Form from "react-bootstrap/Form";
 import "./MyTeam.css";
 import { TeamContext } from "./contexts/TeamContext";
-class MyTeam extends Component {
-  static contextType = TeamContext;
-  render() {
-    const { team, changeTeam } = this.context;
+function MyTeam() {
+  const { team, changeTeam } = useContext(TeamContext);
     const teams: any = {
       rcb: {
         name: "Royal Challengers Bangalore",
@@ -57,7 +55,7 @@ class MyTeam extends Component {
       },
     };
     const { captain, stadium, owner } = teams[team];
-    return (
+  return (
       <div className="my-team">
         <Form.Label>Who is the captain</Form.Label>
         <Form.Control className="select-dd" as="select" onChange={changeTeam}>
@@ -74,7 +72,6 @@ class MyTeam extends Component {
         <h4>Home Ground: {stadium}</h4>
         <h5>Owner: {owner}</h5>
       </div>
-    );
-  }
+    )
 }
 export default MyTeam;
