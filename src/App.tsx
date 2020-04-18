@@ -3,14 +3,17 @@ import PageContent from "./PageContent";
 import NavBar from "./NavBar";
 import MyTeam from "./MyTeam";
 import ThemeProvider from "./contexts/ThemeContext";
+import TeamProvider from "./contexts/TeamContext";
 function App() {
   return (
     <ThemeProvider>
-      <PageContent>
-        <NavBar />
-        <MyTeam />
-      </PageContent>
-      </ThemeProvider>
+      <TeamProvider>
+        <PageContent>
+          <NavBar />
+          <MyTeam />
+        </PageContent>
+      </TeamProvider>
+    </ThemeProvider>
   );
 }
 
