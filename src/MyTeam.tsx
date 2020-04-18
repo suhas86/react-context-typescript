@@ -3,11 +3,8 @@ import Form from "react-bootstrap/Form";
 import "./MyTeam.css";
 class MyTeam extends Component {
   render() {
-    const mode = {
-      color: "black",
-    };
     return (
-      <div className="my-team" style={mode}>
+      <div className="my-team">
         <Form.Label>Who is the captain</Form.Label>
         <Form.Control className="select-dd" as="select">
           <option>Royal Challengers Bangalore</option>

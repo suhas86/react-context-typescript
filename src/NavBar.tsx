@@ -9,7 +9,9 @@ import dc from "./logos/dc.svg";
 import rr from "./logos/rr.svg";
 import srh from "./logos/srh.svg";
 import kkr from "./logos/kkr.svg";
+import {ThemeContext} from "./contexts/ThemeContext";
 class NavBar extends Component {
+  static contextType = ThemeContext;
   render() {
     const teams = {
       rcb: {
@@ -45,8 +47,9 @@ class NavBar extends Component {
         name: "Kolkata Knight Riders",
       },
     };
+    const {isDarkMode, toggleTheme} = this.context;
     return (
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg={isDarkMode? "dark": "primary"} variant="dark">
         <Navbar.Brand style={{ width: "100%" }}>
           <img
             alt=""
@@ -59,7 +62,9 @@ class NavBar extends Component {
           <Form.Check
             style={{ float: "right" }}
             type="checkbox"
+            value={isDarkMode}
             label="Dark Mode"
+            onChange={toggleTheme}
           />
         </Navbar.Brand>
       </Navbar>
