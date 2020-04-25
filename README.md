@@ -1,5 +1,8 @@
 # React Context API using TypeScript
 
+# Article link
+https://medium.com/@murthy.suhas/react-context-using-typescript-c717f1dee2d1
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
